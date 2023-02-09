@@ -5,11 +5,13 @@ from clients.models import Client
 
 
 class Service(models.Model):
+    """Сервисы на которые реализуются подписки"""
     name = models.CharField(max_length=50)
     full_price = models.PositiveIntegerField()
 
 
 class Plan(models.Model):
+    """Тарифные планы."""
     PLAN_TYPES = (
         ('full', 'Full'),
         ('student', 'Student'),
@@ -24,6 +26,7 @@ class Plan(models.Model):
 
 
 class Subscription(models.Model):
+    """Подписки наших клиентов."""
     client = models.ForeignKey(Client,
                                related_name='subscription',
                                on_delete=models.PROTECT,

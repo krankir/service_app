@@ -3,6 +3,7 @@ from django.db import models
 
 
 class Client(models.Model):
+    """Модель нашего клиента."""
     #OneToOneFied к каждому созданому User будет соответствовать модель Client
     user = models.OneToOneField(User, on_delete=models.PROTECT)
     company_name = models.CharField(max_length=100)
